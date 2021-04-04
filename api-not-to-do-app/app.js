@@ -4,8 +4,9 @@ dotenv.config()
 import express from 'express'
 const app = express()
 import cors from 'cors'
+import path from "path";
 
-const PORT = 5000
+const PORT = process.env.PORT || 5000
 
 import router from './router.js'
 
@@ -19,13 +20,21 @@ app.use(express.urlencoded({ extended: false }))
 
 // parse application/json
 app.use(express.json())
+const __dirname = path.resolve()
 
 app.use('/api/v1', router)
 
-app.use('/', (req, res) => {
+
   // throw new Error("test error");
-  res.send('Working')
-})
+  // res.send('Working')
+  if(process.env.NODE_ENV !== 'production'){
+    app.use(express.static(path.join(__dirname,"/react-not-to-do-list/build")))
+
+    app.get('*',(req,res) =>{res.sendFile(path.join(__dirname,"/react-not-to-do-list/index.html"))})
+
+  }
+  else
+{res.send('Welcome to my app')}
 
 app.use((error, req, res, next) => {
   console.log(error)
