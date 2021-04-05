@@ -1,13 +1,14 @@
 import mongoose from "mongoose";
 
-console.log(process.env.MONGO_CLIENT);
+
 
 const mongoClient = async () => { 
 
 const connStr = 
-process.env.NODE_ENV !== 'production'
+process.env.NODE_ENV === 'production'
 ? process.env.PROD_MONGO_CLIENT
-: process.env.MONGO_CLIENT
+: process.env.MONGO_CLIENT || "mongodb://localhost/task_lists"
+console.log(process.env.MONGO_CLIENT, connStr);
 
 	try {
 		const con = await mongoose.connect(connStr, {
