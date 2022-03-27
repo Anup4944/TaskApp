@@ -30,7 +30,6 @@ router.get('/', async (req, res) => {
 
 //create new task in the database
 router.post('/', async (req, res) => {
-  console.log(req.body)
   const result = await insertTask(req.body)
 
   if (result._id) {
@@ -70,16 +69,14 @@ router.patch('/', async (req, res) => {
     })
   }
 })
-router.put('/', (req, res) => {
-  console.log(req.body)
-  res.send('Now you have reached the put')
-})
 
 router.delete('/', async (req, res) => {
   try {
     const ids = req.body
 
     const result = await deleteTasks(ids)
+
+    console.log(result)
 
     if (result?.deletedCount) {
       return res.json({

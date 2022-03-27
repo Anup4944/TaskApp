@@ -31,13 +31,13 @@ export const getTasks = () => {
     }
   })
 }
-export const deleteTasks = (ids) => {
-  if (!ids.length) return false
+export const deleteTasks = (array) => {
+  if (!array.length) return false
   return new Promise((resolve, reject) => {
     try {
       TaskList.deleteMany({
         _id: {
-          $in: ids,
+          $in: array,
         },
       })
         .then((data) => {

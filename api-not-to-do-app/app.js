@@ -4,7 +4,7 @@ dotenv.config()
 import express from 'express'
 const app = express()
 import cors from 'cors'
-import path from "path";
+import path from 'path'
 
 const PORT = process.env.PORT || 5000
 
@@ -24,17 +24,17 @@ const __dirname = path.resolve()
 
 app.use('/api/v1', router)
 
-
-  // throw new Error("test error");
-  // res.send('Working')
-  if(process.env.NODE_ENV === 'production'){
-    app.use(express.static(path.join(__dirname,"/react-not-to-do-list/build")))
- app.get('*',(req,res) =>{res.sendFile(path.join(__dirname,"/react-not-to-do-list/index.html"))})
-
-  }
-  else
-  app.get('/',(req,res)=>{
-res.send('Welcome to my app')})
+// throw new Error("test error");
+// res.send('Working')
+// if (process.env.NODE_ENV === 'production') {
+//   app.use(express.static(path.join(__dirname, '/react-not-to-do-list/build')))
+//   app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, '/react-not-to-do-list/index.html'))
+//   })
+// } else
+//   app.get('/', (req, res) => {
+//     res.send('Welcome to my app')
+//   })
 
 app.use((error, req, res, next) => {
   console.log(error)
