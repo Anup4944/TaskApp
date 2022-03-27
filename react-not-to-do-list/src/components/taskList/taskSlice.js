@@ -27,7 +27,7 @@ const taskSlice = createSlice({
 
     fetchTaskSucess: (state, { payload }) => {
       state.isPending = false;
-      console.log(payload);
+
       state.totalHrs = payload?.reduce((subTtl, row) => subTtl + row.hr, 0);
       state.taskLists = payload?.filter((row) => row.todo);
       state.notToDoLists = payload?.filter((row) => !row.todo);
@@ -58,7 +58,7 @@ const taskSlice = createSlice({
         state.itemToDelete = [...state.itemToDelete, value];
       } else {
         // remove from array
-        const newlist = state.itemToDelete.filter((item) => item != value);
+        const newlist = state.itemToDelete.filter((item) => item !== value);
         state.itemToDelete = newlist;
       }
     },

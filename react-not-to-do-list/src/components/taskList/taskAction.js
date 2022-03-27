@@ -19,7 +19,6 @@ export const addTask = (frmDt) => async (dispatch) => {
     // call api to send data
     dispatch(requestPending());
     const result = await createTask(frmDt);
-    console.log(result);
     dispatch(addTaskSuccess(result));
 
     result.status = "success" && dispatch(fetchTaskLists());

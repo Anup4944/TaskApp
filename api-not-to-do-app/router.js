@@ -76,8 +76,6 @@ router.delete('/', async (req, res) => {
 
     const result = await deleteTasks(ids)
 
-    console.log(result)
-
     if (result?.deletedCount) {
       return res.json({
         status: 'success',

@@ -22,7 +22,7 @@ export const getTaskLists = () => {
   return new Promise(async (resolve, reject) => {
     try {
       const { data } = await axios.get(rootUrl);
-      console.log(data);
+
       resolve(data.result);
     } catch (error) {
       console.log(error);
@@ -53,7 +53,7 @@ export const switchTask = (todo) => {
   return new Promise(async (resolve, reject) => {
     try {
       const { data } = await axios.patch(rootUrl, { todo });
-      console.log(data);
+
       resolve(data);
     } catch (error) {
       console.log(error);
