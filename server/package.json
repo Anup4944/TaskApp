@@ -5,10 +5,9 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "start": "node api-not-to-do-app/app.js",
-    "dev": "nodemon api-not-to-do-app/app.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix react-not-to-do-list && npm run build --prefix react-not-to-do-list"
+    "start": "node server/app.js",
+    "dev": "nodemon server/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Prem Aharya",
   "license": "ISC",

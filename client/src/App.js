@@ -27,7 +27,7 @@ const App = () => {
         <Row>
           <Col>
             <div className="text-center mt-5">
-              <h1>Managing task app build by Anup</h1>
+              <h1> Managing task app build by Anup</h1>
             </div>
           </Col>
         </Row>

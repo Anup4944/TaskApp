@@ -24,19 +24,19 @@ const __dirname = path.resolve()
 
 app.use('/api/v1', router)
 
-app.use(express.static(path.join(__dirname, '/react-not-to-do-list/build')))
+// app.use(express.static(path.join(__dirname, '/react-not-to-do-list/build')))
 
-if (process.env.NODE_ENV !== 'production') {
-  console.log(process.env.NODE_ENV)
+// if (process.env.NODE_ENV !== 'production') {
+//   console.log(process.env.NODE_ENV)
 
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '/react-not-to-do-list/build/index.html'))
-  })
-} else {
-  app.get('/', (req, res) => {
-    res.send('Welcome to my app')
-  })
-}
+//   app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, '/react-not-to-do-list/build/index.html'))
+//   })
+// } else {
+//   app.get('/', (req, res) => {
+//     res.send('Welcome to my app')
+//   })
+// }
 
 app.use((error, req, res, next) => {
   console.log(error)
