@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
-
 import { Container, Row, Col, Alert, Spinner, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-
 import { AddForm } from "./components/form/AddForm";
 import "./App.css";
 import { TaskLists } from "./components/taskList/TaskLists";
@@ -29,7 +27,7 @@ const App = () => {
         <Row>
           <Col>
             <div className="text-center mt-5">
-              <h1>Not To Do List</h1>
+              <h1>Managing task app build by Anup</h1>
             </div>
           </Col>
         </Row>
