@@ -18,13 +18,13 @@ router.get('/', async (req, res) => {
   if (result.length) {
     return res.json({
       status: 'success',
-      message: 'Your new task is added',
+      message: 'Here are list of tasks',
       result,
     })
   }
   res.json({
     status: 'error',
-    message: 'Unable to add your new task, Please try again later.',
+    message: 'No task found.',
   })
 })
 

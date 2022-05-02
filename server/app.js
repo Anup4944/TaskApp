@@ -10,39 +10,26 @@ const PORT = process.env.PORT || 5000
 
 import router from './router.js'
 
-//importing and connecting MongoDB
 import mongoClient from './config/db.js'
 mongoClient()
 
 app.use(cors())
-// parse application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: false }))
 
-// parse application/json
 app.use(express.json())
 const __dirname = path.resolve()
 
 app.use('/api/v1', router)
-
-// app.use(express.static(path.join(__dirname, '/react-not-to-do-list/build')))
-
-// if (process.env.NODE_ENV !== 'production') {
-//   console.log(process.env.NODE_ENV)
-
-//   app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname, '/react-not-to-do-list/build/index.html'))
-//   })
-// } else {
-//   app.get('/', (req, res) => {
-//     res.send('Welcome to my app')
-//   })
-// }
 
 app.use((error, req, res, next) => {
   console.log(error)
   res.send(error.message)
 })
 
+// if (process.env.NODE_ENV === 'production') {
+
+// app.use(express.static("client"))
+// }
 app.listen(PORT, (error) => {
   error && console.log(error)
 
